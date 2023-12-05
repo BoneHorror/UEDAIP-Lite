@@ -1,0 +1,4 @@
+Generally no unit changes unless something needs to be changed for graphics.
+Current changes:
+
+Change IsID used for 173/194 (Gateway/Robo Shadow) from 275 to 332 - So that they do not follow main graphic.
