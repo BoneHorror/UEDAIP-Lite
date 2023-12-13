@@ -1,0 +1,199 @@
+script_name Brood Wars Zerg 4 - Town D
+script_id ZB4D
+
+start_campaign
+wait 1
+
+start_town
+defaultbuild_off
+default_min 0
+wait 1
+
+build 1 drone 110
+build 1 hatchery 100
+build 2 hatchery 80
+build 14 drone 80
+build 1 spawning_pool 80
+build 1 hydralisk_den 80
+build 1 evolution_chamber 80
+build 1 lair 80
+build 1 spire 80
+build 1 queen_nest 80
+build 1 hive 80
+build 1 greater_spire 80
+build 1 ultralisk_cavern 80
+resources 13 Set Ore 500 block1
+resources 13 Set Gas 500 block1
+upgrade_jump 13 Set 55 1 block1
+max_force 700
+define_max 29 drone
+define_max 15 hydralisk
+define_max 30 zergling
+define_max 8 mutalisk
+define_max 10 scourge
+define_max 8 lurker
+define_max 2 queen
+define_max 1 defiler
+define_max 5 guardian
+define_max 255 devourer
+define_max 10 ultralisk
+defensebuild_gg 1 zergling
+defenseuse_gg 1 zergling
+defensebuild_gg 1 hydralisk
+defenseuse_gg 1 hydralisk
+defensebuild_ag 1 hydralisk
+defenseuse_ag 1 hydralisk
+defensebuild_ga 2 mutalisk
+defenseuse_ga 2 mutalisk
+defensebuild_aa 2 scourge
+defenseuse_aa 2 scourge
+defensebuild_aa 1 mutalisk
+defenseuse_aa 1 mutalisk
+tech burrowing 30
+upgrade 1 overlord_capacity 30
+upgrade 1 overlord_speed 30
+capt_expand
+upgrade 1 z_missile_attack 30
+wait 250
+
+attack_add 1 ultralisk
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+upgrade 1 zergling_speed 30
+upgrade 1 z_carapace 30
+wait 2500
+
+attack_add 6 zergling
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+upgrade 1 z_melee_attack 30
+wait 3000
+
+attack_add 6 hydralisk
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+build 24 drone 80
+upgrade 2 z_carapace 30
+upgrade 1 z_flyer_carapace 30
+wait 3000
+
+attack_add 10 zergling
+attack_add 4 hydralisk
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+defensebuild_gg 1 ultralisk
+defenseuse_gg 1 ultralisk
+upgrade 2 z_melee_attack 30
+upgrade 1 z_flyer_attack 30
+wait 3000
+
+attack_add 2 ultralisk
+attack_add 12 zergling
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+defensebuild_ga 1 guardian
+defenseuse_ga 1 guardian
+build 29 drone 80
+upgrade 2 z_missile_attack 30
+upgrade 2 z_flyer_carapace 30
+wait 1500
+
+attack_add 6 hydralisk
+attack_add 4 mutalisk
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+tech spawn_broodling 30
+upgrade 2 z_flyer_attack 30
+upgrade 1 ultralisk_speed 30
+wait 3000
+
+attack_add 3 ultralisk
+attack_add 5 hydralisk
+attack_add 12 zergling
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+upgrade 2 z_melee_attack 30
+upgrade 1 z_flyer_attack 30
+wait 4500
+
+attack_add 4 ultralisk
+attack_add 8 hydralisk
+attack_add 8 zergling
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+upgrade 2 z_missile_attack 30
+upgrade 2 z_flyer_carapace 30
+wait 4500
+
+attack_add 6 hydralisk
+attack_add 5 ultralisk
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+upgrade 1 zergling_attack 30
+upgrade 2 z_flyer_attack 30
+upgrade 1 ultralisk_armor 30
+
+:block1
+wait 4500
+
+attack_add 12 hydralisk
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 3000
+
+attack_add 6 ultralisk
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 4500
+
+attack_add 20 zergling
+attack_add 5 mutalisk
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 6000
+
+attack_add 3 ultralisk
+attack_add 10 hydralisk
+attack_add 12 zergling
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+goto block1

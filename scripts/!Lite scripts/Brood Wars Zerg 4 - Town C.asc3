@@ -1,0 +1,18 @@
+script_name Brood Wars Zerg 4 - Town C
+script_id ZB4C
+
+start_campaign
+start_areatown
+defaultbuild_off
+default_min 0
+wait 1
+
+build 1 command_center 90
+build 1 scv 90
+build 6 scv 80
+build 1 bunker 80
+
+:block1
+wait 1500
+
+goto block1

@@ -1,0 +1,171 @@
+script_name Brood Wars Zerg 3 - Town B
+script_id ZB3B
+
+start_campaign
+wait 1
+
+start_town
+defaultbuild_off
+default_min 0
+wait 1
+
+build 1 command_center 150
+build 1 scv 130
+build 15 scv 80
+call block1
+build 1 starport 80
+build 1 science_facility 80
+build 1 control_tower 80
+build 1 covert_ops 80
+defensebuild_gg 1 marine
+defenseuse_gg 1 marine
+defensebuild_gg 1 siege_tank
+defenseuse_gg 1 siege_tank
+defensebuild_gg 1 goliath
+defenseuse_gg 1 goliath
+defensebuild_gg 1 firebat
+defenseuse_gg 1 firebat
+defensebuild_gg 1 vulture
+defenseuse_gg 1 vulture
+defensebuild_gg 1 wraith
+defenseuse_gg 1 wraith
+defensebuild_gg 1 ghost
+defenseuse_gg 1 ghost
+defensebuild_ag 1 goliath
+defenseuse_ag 1 goliath
+defensebuild_ag 1 marine
+defenseuse_ag 1 marine
+defensebuild_ag 1 wraith
+defenseuse_ag 1 wraith
+defensebuild_ag 1 ghost
+defenseuse_ag 1 ghost
+defensebuild_aa 1 wraith
+defenseuse_aa 1 wraith
+defensebuild_ga 1 wraith
+defenseuse_ga 1 wraith
+max_force 600
+resources 13 Set Ore 300 block1
+resources 13 Set Gas 2000 block1
+multirun defense_helper
+define_max 15 scv
+define_max 16 marine
+define_max 8 firebat
+define_max 8 ghost
+define_max 255 medic
+define_max 5 vulture
+define_max 8 goliath
+define_max 7 siege_tank
+define_max 4 dropship
+define_max 1 science_vessel
+define_max 7 wraith
+define_max 255 valkyrie
+define_max 255 battlecruiser
+define_max 255 nuclear_missile
+upgrade 1 wraith_mana 30
+upgrade 1 science_vessel_mana 30
+upgrade 1 ghost_mana 30
+tech cloaking_field 30
+
+:block3
+bw_kills 3 AtLeast 2 command_center block2
+enemyresources_jump 4000 0 block2
+wait 50
+
+goto block3
+
+:block2
+tech irradiate 30
+tech emp_shockwave 30
+upgrade 2 t_infantry_weapon 30
+upgrade 2 t_ship_plating 30
+upgrade 2 t_vehicle_weapon 30
+
+:block5
+bw_kills 3 AtLeast 3 command_center block4
+enemyresources_jump 6000 0 block4
+wait 50
+
+goto block5
+
+:block4
+define_max 1 nuclear_missile
+upgrade 3 t_infantry_weapon 30
+upgrade 2 t_vehicle_plating 30
+upgrade 2 t_ship_weapon 30
+upgrade 1 ghost_sight 30
+:block7
+bw_kills 3 AtLeast 3 command_center block6
+enemyresources_jump 8000 0 block6
+wait 50
+
+goto block7
+
+:block6
+train 2 wraith
+train 8 marine
+train 4 wraith
+train 6 firebat
+train 6 wraith
+train 4 ghost
+attack_add 8 marine
+attack_add 6 firebat
+attack_add 4 ghost
+unstart_campaign
+attack_prepare
+start_campaign
+wait 500
+
+attack_do
+attack_clear
+train 6 wraith
+attack_add 6 wraith
+unstart_campaign
+set_attacks 1
+target_expansion
+start_campaign
+wait 500
+
+attack_do
+attack_clear
+wait 3000
+
+goto block6
+
+:block1
+build 1 barracks 50
+build 1 academy 50
+build 1 factory 50
+build 1 engineering_bay 50
+build 1 armory 50
+build 1 machine_shop 50
+tech stim_packs 30
+upgrade 1 t_infantry_armor 30
+upgrade 1 marine_range 30
+upgrade 1 t_vehicle_plating 30
+upgrade 1 t_infantry_weapon 30
+upgrade 1 vulture_speed 30
+upgrade 1 t_ship_plating 30
+upgrade 1 t_vehicle_weapon 30
+upgrade 1 t_ship_weapon 30
+return
+
+:defense_helper
+multirun secure_check
+:worry
+deaths 13 AtLeast_Call 37 214 call_for_help
+#uses start location deaths for this player
+wait 50
+
+deaths 13 Add 1 214 worry
+goto worry
+
+:call_for_help
+help_iftrouble
+return
+
+:secure_check
+wait 50
+
+wait_secure
+deaths 13 Set 0 214 secure_check
+goto secure_check

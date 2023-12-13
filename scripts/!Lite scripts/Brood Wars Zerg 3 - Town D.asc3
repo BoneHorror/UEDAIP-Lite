@@ -1,0 +1,134 @@
+script_name Brood Wars Zerg 3 - Town D
+script_id ZB3D
+
+start_campaign
+wait 1
+
+start_town
+defaultbuild_off
+default_min 0
+wait 1
+
+build 1 command_center 150
+build 1 scv 130
+build 12 scv 80
+call block1
+defensebuild_gg 1 marine
+defenseuse_gg 1 marine
+defensebuild_gg 1 goliath
+defenseuse_gg 1 goliath
+defensebuild_gg 1 firebat
+defenseuse_gg 1 firebat
+defensebuild_gg 1 vulture
+defenseuse_gg 1 vulture
+defensebuild_ag 1 goliath
+defenseuse_ag 1 goliath
+defensebuild_ag 1 marine
+defenseuse_ag 1 marine
+resources 13 Set Ore 600 block1
+resources 13 Set Gas 200 block1
+multirun defense_helper
+max_force 400
+define_max 15 scv
+define_max 20 marine
+define_max 8 firebat
+define_max 255 ghost
+define_max 255 medic
+define_max 8 vulture
+define_max 2 goliath
+define_max 4 siege_tank
+define_max 3 dropship
+define_max 255 science_vessel
+define_max 255 wraith
+define_max 255 valkyrie
+define_max 255 battlecruiser
+:block3
+enemyowns_jump hatchery block2
+wait 50
+
+goto block3
+
+:block2
+attack_add 3 marine
+attack_add 1 vulture
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 4500
+
+
+:block5
+attack_add 4 marine
+attack_add 2 vulture
+attack_add 1 siege_tank
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 4500
+
+enemyresources_jump 2000 0 block4
+goto block5
+
+:block4
+attack_add 6 vulture
+attack_add 2 siege_tank
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 4500
+
+attack_add 6 marine
+attack_add 3 vulture
+attack_add 1 siege_tank
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+goto block4
+
+:block1
+build 1 barracks 50
+build 1 academy 50
+build 2 factory 50
+build 1 engineering_bay 50
+build 1 armory 50
+build 1 machine_shop 50
+tech stim_packs 30
+upgrade 1 t_infantry_armor 30
+upgrade 1 marine_range 30
+upgrade 1 t_vehicle_plating 30
+upgrade 1 t_infantry_weapon 30
+upgrade 1 vulture_speed 30
+upgrade 1 t_ship_plating 30
+upgrade 1 t_vehicle_weapon 30
+upgrade 1 t_ship_weapon 30
+return
+
+:defense_helper
+multirun secure_check
+:worry
+deaths 13 AtLeast_Call 37 214 call_for_help
+#uses start location deaths for this player
+wait 50
+
+deaths 13 Add 1 214 worry
+goto worry
+
+:call_for_help
+help_iftrouble
+return
+
+:secure_check
+wait 50
+
+wait_secure
+deaths 13 Set 0 214 secure_check
+goto secure_check
+

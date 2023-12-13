@@ -1,0 +1,222 @@
+script_name Brood Wars Zerg 2 - Town A
+script_id ZB2A
+
+start_campaign
+wait 1
+
+start_town
+defaultbuild_off
+default_min 0
+wait 1
+
+build 1 command_center 80
+build 15 scv 80
+build 1 barracks 80
+build 1 engineering_bay 80
+build 1 academy 80
+build 1 factory 80
+build 1 machine_shop 80
+build 1 armory 80
+build 1 starport 80
+build 1 control_tower 80
+max_force 400
+define_max 30 scv
+define_max 52 marine
+define_max 8 goliath
+define_max 4 wraith
+define_max 1 valkyrie
+define_max 2 vulture
+define_max 8 firebat
+define_max 4 medic
+define_max 3 dropship
+define_max 10 siege_tank
+resources 13 Set Ore 800 block1
+resources 13 Set Gas 0 block1
+defensebuild_gg 1 marine
+defenseuse_gg 1 marine
+defensebuild_gg 1 firebat
+defenseuse_gg 1 firebat
+defensebuild_gg 1 vulture
+defenseuse_gg 1 vulture
+defensebuild_gg 1 siege_tank
+defensebuild_ag 1 marine
+defenseuse_ag 1 marine
+defensebuild_ag 1 goliath
+defenseuse_ag 1 goliath
+defensebuild_ag 1 valkyrie
+defenseuse_ag 1 valkyrie
+defensebuild_ga 1 wraith
+defenseuse_ga 1 wraith
+defensebuild_aa 1 wraith
+defenseuse_aa 1 wraith
+defensebuild_aa 1 valkyrie
+defenseuse_aa 1 valkyrie
+idle_orders 92 256 3 marine 368 bunker 50 Own|NotEnemies|Self(Order(163))
+idle_orders 92 256 1 ghost 368 bunker 50 Own|NotEnemies|Self(Order(163))
+idle_orders 92 256 1 firebat 368 bunker 50 Own|NotEnemies|Self(Order(163))
+idle_orders 92 64 3 marine 168 bunker 90 Own|NotEnemies|Self(InCombat)|Self(Order(163))
+idle_orders 92 64 1 ghost 168 bunker 90 Own|NotEnemies|Self(InCombat)|Self(Order(163))
+idle_orders 92 64 1 firebat 168 bunker 90 Own|NotEnemies|Self(InCombat)|Self(Order(163))
+idle_orders 92 256 3 marine 368 bunker 50 Own|NotEnemies|Self(Order(Guard))
+idle_orders 92 256 1 ghost 368 bunker 50 Own|NotEnemies|Self(Order(Guard))
+idle_orders 92 256 1 firebat 368 bunker 50 Own|NotEnemies|Self(Order(Guard))
+idle_orders 92 64 3 marine 168 bunker 90 Own|NotEnemies|Self(InCombat)|Self(Order(Guard))
+idle_orders 92 64 1 ghost 168 bunker 90 Own|NotEnemies|Self(InCombat)|Self(Order(Guard))
+idle_orders 92 64 1 firebat 168 bunker 90 Own|NotEnemies|Self(InCombat)|Self(Order(Guard))
+tech restoration 30
+upgrade 1 t_infantry_weapon 30
+wait 2500
+
+train 1 medic
+train 6 marine
+attack_add 6 marine
+attack_add 1 medic
+call attack_close
+wait 500
+
+attack_timeout 120
+attack_do
+attack_clear
+tech stim_packs 30
+tech siege_mode 30
+upgrade 1 t_infantry_armor 30
+wait 1250
+#quick attack, but it's ok to be a little top-heavy here, when the Player has hero strains
+
+train 2 wraith
+train 2 vulture
+train 3 goliath
+attack_add 2 wraith
+attack_add 2 vulture
+attack_add 3 goliath
+call attack_close
+wait 500
+
+attack_do
+attack_clear
+upgrade 1 vulture_speed 30
+upgrade 1 marine_range 30
+upgrade 1 t_vehicle_plating 30
+wait 2250
+
+train 2 medic
+attack_add 6 marine
+attack_add 2 medic
+attack_add 4 firebat
+call attack_close
+wait 500
+
+attack_timeout 120
+attack_do
+attack_clear
+expand 2 expansion
+tech cloaking_field 30
+upgrade 1 t_ship_weapon 30
+upgrade 1 goliath_range 30
+wait 2700
+
+attack_add 6 marine
+attack_add 4 goliath
+call attack_close
+wait 500
+
+attack_do
+attack_clear
+upgrade 1 medic_mana 30
+upgrade 1 t_vehicle_weapon 30
+wait 2250
+
+attack_add 3 goliath
+attack_add 1 valkyrie
+attack_add 2 siege_tank
+call attack_close
+wait 500
+
+attack_do
+attack_clear
+wait 2750
+
+train 2 medic
+attack_add 14 marine
+attack_add 2 medic
+attack_add 2 wraith
+attack_add 2 siege_tank
+call attack_close
+wait 500
+
+attack_timeout 120
+attack_do
+attack_clear
+tech spider_mines 30
+tech optical_flare 30
+upgrade 1 t_ship_plating 30
+wait 3000
+
+attack_add 1 valkyrie
+attack_add 2 wraith
+attack_add 6 marine
+attack_add 4 siege_tank
+call attack_close
+wait 500
+
+attack_do
+attack_clear
+upgrade 1 wraith_mana 30
+:block1
+expand 2 expansion
+wait 3000
+
+attack_add 8 marine
+attack_add 4 goliath
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 3000
+
+train 2 medic
+attack_add 8 marine
+attack_add 5 firebat
+attack_add 2 medic
+attack_add 1 valkyrie
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 3000
+
+train 3 medic
+attack_add 12 marine
+attack_add 3 medic
+attack_add 2 wraith
+attack_add 2 siege_tank
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+goto block1
+
+:attack_close
+unstart_campaign
+attack_prepare
+start_campaign
+return
+
+:expansion
+start_town
+build 1 command_center 100
+get_oldpeons 1
+wait_buildstart 1 command_center
+build 1 scv 90
+wait_build 1 scv
+build 5 scv 80
+wait 5000
+
+build 1 bunker 80
+:exp_loop
+wait 1500
+
+goto exp_loop
