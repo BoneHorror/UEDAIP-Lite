@@ -1,5 +1,6 @@
 import os
 from itertools import pairwise
+#python3 '.\scripts\!Lite scripts\script_interpreter.py'
 
 ATK_DECLARATIONS: list[str] = ["attack_prepare", "target_expansion", "unstart_campaign", "call"]
 #Types of attack declarations to check for
@@ -25,6 +26,7 @@ def startswith_fromlist(line_to_read, list) -> bool:
 def easy_ask_for_script() -> str:
     scriptname = input("Please input the name of the script: ")
     print(f"Looking for script {scriptname.upper()}...")
+    os.chdir('./scripts/!Lite scripts/')
     for filename in os.listdir('.'):
         if os.path.isfile(filename):
             with open(filename, encoding='utf-8') as file:
@@ -76,8 +78,12 @@ def find_attacks(filename):
                 attack_list.append(local_attack)
     return attack_list if not len(attack_list) == 0 else attack_add_list
 
+def list_attacks_from(filename):
+    for attack in find_attacks(scriptname):
+        for attack_entry in attack.entry_list:
+            print(attack_entry.number+" "+attack_entry.unit)
+        print(attack.type)
+
+#Execution
 scriptname = easy_ask_for_script()
-for attack in find_attacks(scriptname):
-    for attack_entry in attack.entry_list:
-        print(attack_entry.number+" "+attack_entry.unit)
-    print(attack.type)
+list_attacks_from(scriptname)
