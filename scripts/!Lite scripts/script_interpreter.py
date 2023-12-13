@@ -30,7 +30,7 @@ def easy_ask_for_script() -> str:
             with open(filename, encoding='utf-8') as file:
                 for index, line in enumerate(file):
                     print(f"Looking at {file.name} at index {index+1}...")
-                    if scriptname.upper() in line.upper() and index < 5:
+                    if scriptname.upper() in line.upper() and index < 6:
                         print(f"in {file.name}, found {scriptname.upper()} in line {index+1}!")
                         return os.path.basename(file.name)
     if scriptname == "":
