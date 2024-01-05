@@ -1,6 +1,6 @@
 import os
 from itertools import pairwise
-#python3 '.\scripts\!Lite scripts\script_interpreter.py'
+#python3.12 '.\scripts\!Lite scripts\script_interpreter.py'
 
 ATK_DECLARATIONS: list[str] = ["attack_prepare", "target_expansion", "unstart_campaign", "call"]
 #Types of attack declarations to check for
@@ -10,6 +10,11 @@ class atk_line:
         assert valid_type(int, number) and int(number) < 65, f"Error! Expected int and max 64 units, instead got {type(number)} and {number}" #max 64 units in an attack 
         self.number = number
         self.unit = unit
+        self.order_from_top = order_from_top
+
+class block_declaration:
+    def __init__(self, order_from_top, block):
+        self.blockname = block
         self.order_from_top = order_from_top
 
 class constructed_attack:
@@ -102,6 +107,9 @@ def find_attacks(filename):
                     local_attack = constructed_attack(attack_add_list, next_line)
                     attack_add_list: list = [] #reset list when one full attack is added
                     attack_list.append(local_attack)
+            elif line.startswith(":"): #":" is included so that we know which blocks are we in
+                current_block = block_declaration(index, line)
+                attack_list.append(current_block)
         return attack_list if not len(attack_list) == 0 else attack_add_list
     else:
         print(f"ERROR: COULD NOT PARSE LINES ARRAY: Exiting find_attacks: " + filename)
@@ -109,9 +117,12 @@ def find_attacks(filename):
 
 def list_attacks_from(filename):
     for attack in find_attacks(scriptname):
-        for attack_entry in attack.entry_list:
-            print(attack_entry.number+" "+attack_entry.unit)
-        print(attack.type)
+        if type(attack) == constructed_attack:
+            for attack_entry in attack.entry_list:
+                print(attack_entry.number+" "+attack_entry.unit)
+            print(attack.type)
+        elif type(attack) == block_declaration:
+            print(attack.blockname)
 
 #Execution
 scriptname = easy_ask_for_script()
