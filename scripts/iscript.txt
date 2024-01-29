@@ -4799,10 +4799,12 @@ Goliath_Base_WalkingToIdle:
 	goto           	long00
 
 Goliath_Base_Death:
-	playsnd        	8	# Misc\ExploMed.wav
+	wait			2
+	playsnd        	1021	# Terran\Frigate\AfterOff.wav - GolDeathSnd 
+	wait			2
 	imgol          	332 0 0	# TerranBuildingExplosionsmall (thingy\tBangS.grp)
-	wait           	3
-	end            	
+	wait           	1
+	end            		
 
 Goliath_Base_Walking:
 	move           	5
@@ -4845,7 +4847,7 @@ Goliath_Base_Walking:
 IsId           	76
 Type           	12
 Init           	Goliath_Turret_Init
-Death          	long01
+Death          	Goliath_Turret_Dth
 GndAttkInit    	Goliath_Turret_GndAttkInit
 AirAttkInit    	Goliath_Turret_AirAttkInit
 Unused1        	[NONE]
@@ -4920,7 +4922,15 @@ Goliath_Turret_Walking:
 	playfram       	0x77	# frame set 7
 	goto           	Goliath_Turret_Walking
 
-
+Goliath_Turret_Dth:
+	setvertpos		1
+	wait			2
+	setvertpos		3
+	wait			2
+	setvertpos		6
+	wait			1
+	end
+	
 # ----------------------------------------------------------------------------- #
 # This header is used by images.dat entries:
 # 237 KerriganGhost (terran\ughost.grp)
@@ -9475,11 +9485,11 @@ Unused1        	[NONE]
 GndAttkRpt     	InterceptorGndAttkInit
 AirAttkRpt     	InterceptorGndAttkInit
 CastSpell      	[NONE]
-GndAttkToIdle  	long00
-AirAttkToIdle  	long00
+GndAttkToIdle  	InterceptorGndAttkToIdle
+AirAttkToIdle  	InterceptorGndAttkToIdle
 Unused2        	[NONE]
 Walking        	InterceptorWalking
-WalkingToIdle  	long02
+WalkingToIdle  	InterceptorWalkingToIdle
 SpecialState1  	[NONE]
 .headerend
 # ----------------------------------------------------------------------------- #
@@ -9487,8 +9497,21 @@ SpecialState1  	[NONE]
 InterceptorInit:
 	imgul          	117 0 42	# InterceptorShad (protoss\Intercep.grp)
 	playfram       	0x00	# frame set 0
-	goto           	long02
-
+InterceptorLoop:
+	wait			5
+	if unit.remaining_build_time > 5 goto InterceptorLoop
+	playsndrand    	2 102 103	# Bullet\pTrFir00.wav, Bullet\pTrFir01.wav
+InterceptorWalkingToIdle:
+	setvertpos     	1
+	waitrand       	8 10
+	setvertpos     	2
+	waitrand       	8 10
+	setvertpos     	1
+	waitrand       	8 10
+	setvertpos     	0
+	waitrand       	8 10
+	goto           	InterceptorWalkingToIdle
+	
 InterceptorDeath:
 	playsnd        	8	# Misc\ExploMed.wav
 	imgol          	213 0 0	# ProtossBuildingExplosionSmall (thingy\tBangS.grp)
@@ -9496,13 +9519,17 @@ InterceptorDeath:
 	end            	
 
 InterceptorGndAttkInit:
-	wait           	1
+	wait           	2
 	attackwith     	1
 	playfram       	0x11	# frame set 1
-	wait           	1
+	wait           	2
 	playfram       	0x00	# frame set 0
 	gotorepeatattk 	
-	goto           	long00
+	goto           	InterceptorGndAttkToIdle
+
+InterceptorGndAttkToIdle:
+	wait           	125
+	goto           	InterceptorGndAttkToIdle
 
 InterceptorWalking:
 	playfram       	0x00	# frame set 0
@@ -9871,6 +9898,10 @@ SpecialState1  	ScarabSpecialState1
 
 ScarabInit:
 	playfram       	0x00	# frame set 0
+ScarabLoopUntilComplete:
+	wait			5
+	if unit.remaining_build_time > 5 goto ScarabLoopUntilComplete
+	playsndrand    	2 102 103	# Bullet\pTrFir00.wav, Bullet\pTrFir01.wav
 	goto           	long00
 
 ScarabDeath:
@@ -12817,6 +12848,7 @@ DualPhotonBlasterHitInit:
 	sigorder       	1
 	wait           	1
 DualPhotonBlasterHitDeath:
+	if bullet.weapon_id == 79 goto SilentBlasterNoDmg
 	playfram       	0
 	playsnd        	66	# Bullet\BlastGn2.wav
 	domissiledmg   	
@@ -12837,7 +12869,21 @@ DualPhotonBlasterHitDeath:
 	wait           	1
 	end            	
 
+SilentBlasterNoDmg:
+	randcondjmp    	128 SilentBlasterVar
+	playfram       	0
+	wait           	1
+	playfram       	1
+	wait           	1
+	end        
 
+SilentBlasterVar:
+	playfram       	4
+	wait           	1
+	playfram       	5
+	wait           	1
+	end  
+	
 # ----------------------------------------------------------------------------- #
 # This header is used by images.dat entries:
 # 521 Unknown521 (bullet\hks.grp)
@@ -12893,6 +12939,7 @@ PulseCannonGndAttkInit:
 
 PulseCannonDeath:
 	playsnd        	9	# Misc\ExploSm.wav
+	imgol          	519 0 0	# Photon Blasters img
 	domissiledmg   	
 	wait           	1
 	end            	
