@@ -4868,9 +4868,11 @@ Goliath_Turret_Init:
 	goto           	long00
 
 Goliath_Turret_GndAttkInit:
-	playfram       	0xaa	# frame set 10
-	playsnd        	70	# Bullet\TGoFir00.wav
-	attackwith     	1
+	nobrkcodestart 	
+    playfram        0xaa    # frame set 10
+    playsnd         70  # Bullet\TGoFir00.wav
+    attackwith      1
+	nobrkcodeend
 	wait           	1
 	playfram       	0x77	# frame set 7
 	wait           	1
