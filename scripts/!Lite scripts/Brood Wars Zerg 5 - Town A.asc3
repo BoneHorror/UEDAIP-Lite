@@ -28,7 +28,7 @@ build 1 covert_ops 80
 build 1 science_facility 80
 build 1 physics_lab 80
 resources 13 Set Ore 500 block1
-resources 13 Set Gas 500 block1
+resources 13 Set Gas 800 block1
 upgrade_jump 13 Set 55 1 block1
 #mining cheat upgrade
 max_force 1200
