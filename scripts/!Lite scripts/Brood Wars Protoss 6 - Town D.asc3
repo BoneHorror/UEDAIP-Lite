@@ -55,7 +55,7 @@ PB6D(1378, 111, bwscript):
 	tech(Consume, 30)
 
 
-	wait(500)
+	wait(1250)
 	attack_add(2, Zerg Ultralisk)
 	attack_prepare()
 	wait(500)
@@ -67,7 +67,7 @@ PB6D(1378, 111, bwscript):
 
 
 
-	wait(2000)
+	wait(2550)
 	attack_add(2, Zerg Ultralisk)
 	attack_add(8, Zerg Zergling)
 	attack_prepare()
@@ -76,7 +76,7 @@ PB6D(1378, 111, bwscript):
 	attack_clear()
 
 
-	wait(2000)
+	wait(3750)
 	attack_add(3, Zerg Ultralisk)
     attack_add(8, Zerg Zergling)
 	attack_prepare()
@@ -84,16 +84,15 @@ PB6D(1378, 111, bwscript):
 	attack_do()
 	attack_clear()
 
-	wait(2000)
+	wait(2250)
 	attack_add(6, Zerg Ultralisk)
 	attack_prepare()
 	wait(500)
 	attack_do()
 	attack_clear()
 	upgrade(1, Zerg Missile Attacks, 30)
-	wait(2000)
-    
-
+	
+	wait(2750)
     attack_add(24, Zerg Zergling)
 	attack_prepare()
 	wait(500)
@@ -101,7 +100,7 @@ PB6D(1378, 111, bwscript):
 	attack_clear()
 	upgrade(2, Zerg Melee Attacks, 30)
 
-	wait(2000)
+	wait(2750)
 	attack_add(4, Zerg Ultralisk)
 	attack_add(8, Zerg Hydralisk)
 	attack_prepare()
@@ -117,6 +116,8 @@ PB6D(1378, 111, bwscript):
 	attack_do()
 	attack_clear()
 	upgrade(2, Zerg Flyer Carapace, 30)
+
+	
 	wait(2000)
 	attack_add(3, Zerg Ultralisk)
 	attack_prepare()
