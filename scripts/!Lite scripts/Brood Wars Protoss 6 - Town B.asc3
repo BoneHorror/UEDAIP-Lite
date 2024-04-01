@@ -34,7 +34,7 @@ PB6B(1376, 111, bwscript): # Script Name: Brood Wars Protoss 6 - Town B
 
 
     attack_add(4, Zerg Hydralisk)
-    attack_add(6, Zerg Zergling)
+    attack_add(2, Zerg Lurker)
     attack_prepare()
     wait(500)
 
@@ -59,7 +59,16 @@ PB6B(1376, 111, bwscript): # Script Name: Brood Wars Protoss 6 - Town B
 
         --block2--
     attack_add(8, Zerg Hydralisk)
-    attack_add(10, Zerg Zergling)
+    attack_add(3, Zerg Lurker)
+    attack_prepare()
+    wait(500)
+    attack_do()
+    attack_clear()
+
+
+
+    wait(1500)
+    attack_add(8, Zerg Hydralisk)
     attack_prepare()
     wait(500)
 
@@ -67,25 +76,13 @@ PB6B(1376, 111, bwscript): # Script Name: Brood Wars Protoss 6 - Town B
     attack_clear()
 
 
-
-    attack_add(15, Zerg Hydralisk)
+    wait(1500)
+    attack_add(10, Zerg Hydralisk)    
+    attack_add(4, Zerg Lurker)
     attack_prepare()
     wait(500)
-
     attack_do()
     attack_clear()
 
-
-    attack_add(15, Zerg Hydralisk)    
-    attack_add(10, Zerg Zergling)
-    attack_add(2, Zerg Lurker)
-
-    attack_prepare()
-    wait(500)
-
-    attack_do()
-    attack_clear()
-
-    wait(500)
-
+    wait(1500)
     goto(block2)

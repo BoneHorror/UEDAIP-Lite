@@ -5,16 +5,76 @@
 script_name Brood Wars Protoss 6 - Town E
 script_id PB6E
 
-start_campaign
-start_areatown
-defaultbuild_off
-default_min 0
-wait 1
 
-build 1 drone 80
-build 2 drone 80
+    start_campaign()
+    start_areatown()
+    defaultbuild_off()
+    default_min(0)
+    wait(1)
 
-:block1
-wait 1500
+    build(6, Zerg Drone, 80)    
+    build(2, Zerg Hatchery, 80)
 
-goto block1
+    wait(6750)
+    attack_add(4, Zerg Mutalisk)
+    attack_add(4, Zerg Scourge)
+    attack_prepare()
+    wait(500)
+
+    attack_do()
+    attack_clear()
+
+    wait(1500)
+    attack_add(4, Zerg Scourge)
+    attack_add(6, Zerg Mutalisk)
+    attack_prepare()
+    wait(750)
+
+    attack_do()
+    attack_clear()
+
+
+    wait(2000)
+    attack_add(2, Zerg Ultralisk)
+    attack_add(6, Zerg Mutalisk)
+    attack_prepare()
+    wait(500)
+
+    attack_do()
+    attack_clear()
+
+    wait(1750)
+    attack_add(6, Zerg Scourge)
+    attack_add(1, Zerg Ultralisk)
+    attack_add(8, Zerg Mutalisk)
+    attack_prepare()
+    wait(750)
+
+    attack_do()
+    attack_clear()
+
+    wait(2750)
+
+    --block2--
+    attack_add(8, Zerg Scourge)
+    attack_add(3, Zerg Ultralisk)
+    attack_add(6, Zerg Mutalisk)
+    attack_prepare()
+    wait(500)
+    attack_do()
+    attack_clear()
+
+
+
+    wait(1500)
+    attack_add(4, Zerg Scourge)
+    attack_add(2, Zerg Ultralisk)
+    attack_add(6, Zerg Mutalisk)
+    attack_prepare()
+    wait(500)
+
+    attack_do()
+    attack_clear()
+
+    wait(1500)
+    goto(block2)
