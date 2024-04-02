@@ -54,17 +54,19 @@ PB6A(1375, 111, bwscript):
 	upgrade(1, Pneumatized Carapace, 30)
 	tech(Ensnare, 30)
 	tech(Lurker Aspect, 30)
-	wait(2100)
+	
 
-
+	    
+	upgrade(1, Zerg Flyer Carapace, 30)
+    upgrade(1, Zerg Flyer Attacks, 30)
+	
+	wait(5250)
 	attack_add(3, Zerg Mutalisk)
 	attack_add(1, Zerg Hydralisk)
 	attack_prepare()
 	wait(600)
 	attack_do()
 	attack_clear()
-    upgrade(1, Zerg Flyer Carapace, 30)
-    upgrade(1, Zerg Flyer Attacks, 30)
 
 	wait(2700)
     attack_add(4, Zerg Mutalisk)

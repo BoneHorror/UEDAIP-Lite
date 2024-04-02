@@ -15,12 +15,28 @@ script_id PB6E
     build(6, Zerg Drone, 80)    
     build(2, Zerg Hatchery, 80)
 
-    wait(6750)
+    wait(4500)
+    attack_add(1, Zerg Mutalisk)
+    attack_add(2, Zerg Scourge)
+    attack_prepare()
+    wait(500)
+    attack_do()
+    attack_clear()
+
+
+    wait(2000)
+    attack_add(2, Zerg Mutalisk)
+    attack_add(2, Zerg Scourge)
+    attack_prepare()
+    wait(500)
+    attack_do()
+    attack_clear()
+
+    wait(10000)
     attack_add(4, Zerg Mutalisk)
     attack_add(4, Zerg Scourge)
     attack_prepare()
     wait(500)
-
     attack_do()
     attack_clear()
 
