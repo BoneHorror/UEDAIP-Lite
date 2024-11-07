@@ -4,6 +4,7 @@ from itertools import pairwise
 
 ATK_DECLARATIONS: list[str] = ["attack_prepare", "target_expansion", "unstart_campaign", "call"]
 #Types of attack declarations to check for
+#TODO - sum unit supply in define_maxes
 
 class atk_line:
     def __init__(self, order_from_top, number, unit):
