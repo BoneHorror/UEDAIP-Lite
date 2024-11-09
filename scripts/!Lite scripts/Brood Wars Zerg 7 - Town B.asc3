@@ -195,7 +195,7 @@ goto block1
 :beacon_help
 wait 50
 
-bring_jump 14 AtMost 2 196 Loc.63 beacon_help 
+bring_jump 14 AtMost 2 194 Loc.63 beacon_help 
 :help_loop
 help_iftrouble
 
