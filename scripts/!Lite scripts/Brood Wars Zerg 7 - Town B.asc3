@@ -9,10 +9,10 @@ defaultbuild_off
 default_min 1
 wait 1
 
-#TODO add a jump to loop that requests help if enemy has 3+ beacons
 build 1 nexus 80
 build 4 probe 80
 max_force 600
+multirun beacon_help
 capt_expand
 define_max 14 zealot
 define_max 7 dragoon
@@ -38,8 +38,7 @@ defensebuild_aa 1 scout
 defenseuse_aa 1 scout
 wait 2250
 
-attack_add 2 zealot
-attack_add 1 dark_templar
+attack_add 2 dark_templar
 attack_prepare
 wait 500
 
@@ -58,8 +57,7 @@ attack_clear
 upgrade 1 dragoon_range 30
 wait 3750
 
-attack_add 2 zealot
-attack_add 5 dragoon
+attack_add 12 zealot
 attack_prepare
 wait 500
 
@@ -68,6 +66,7 @@ attack_clear
 wait 2250
 
 attack_add 6 dark_templar
+attack_add 5 dragoon
 attack_prepare
 wait 500
 
@@ -80,8 +79,9 @@ upgrade 1 p_armor 30
 upgrade 1 p_air_weapon 30
 upgrade 1 p_plating 30
 upgrade 1 p_plasma_shield 30
-wait 6750
+wait 4750
 
+attack_add 3 zealot
 attack_add 3 dragoon
 attack_add 3 dark_templar
 attack_prepare
@@ -89,10 +89,17 @@ wait 500
 
 attack_do
 attack_clear
+attack_add 4 dark_templar
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
 wait 2250
 
+attack_add 1 dark_archon
 attack_add 2 dark_templar
-attack_add 1 dragoon
+attack_add 4 dragoon
 attack_add 2 reaver
 attack_prepare
 wait 500
@@ -100,7 +107,7 @@ wait 500
 attack_do
 attack_clear
 tech maelstrom 30
-wait 11250
+wait 5250
 
 attack_add 10 dark_templar
 attack_prepare
@@ -119,12 +126,13 @@ wait 3750
 attack_add 8 dark_templar
 attack_add 2 scout
 attack_add 2 corsair
+attack_add 1 dark_archon
 attack_prepare
 wait 500
 
 attack_do
 attack_clear
-wait 9750
+wait 5750
 
 attack_add 8 dark_templar
 attack_prepare
@@ -134,7 +142,7 @@ attack_do
 attack_clear
 upgrade 1 observer_sight 30
 upgrade 1 scout_sight 30
-wait 6750
+wait 3750
 
 attack_add 3 dragoon
 attack_add 2 scout
@@ -144,7 +152,7 @@ wait 500
 
 attack_do
 attack_clear
-wait 14250
+wait 2250
 
 attack_add 3 dragoon
 attack_add 12 dark_templar
@@ -161,6 +169,35 @@ upgrade 3 p_plating 30
 upgrade 3 p_plasma_shield 30
 
 :block1
-wait 1500
+wait 3050
 
+attack_add 4 zealot
+attack_add 1 dark_archon
+attack_add 2 dark_templar
+attack_add 4 dragoon
+attack_add 2 reaver
+attack_add 2 corsair
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 4250
+
+attack_add 10 dark_templar
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
 goto block1
+
+:beacon_help
+wait 50
+
+bring_jump 14 AtMost 2 196 Loc.63 beacon_help 
+:help_loop
+help_iftrouble
+
+wait_rand 1533 3000
+goto help_loop

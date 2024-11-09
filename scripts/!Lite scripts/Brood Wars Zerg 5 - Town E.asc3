@@ -70,5 +70,5 @@ print Ensure_TwoOrMore_PleaseReportMeIfSeen
 bank_data Set 1 Ensures Ensure_TwoOrMore wait_attack
 bank_data Set 0 Ensures Ensure_Compare wait_attack
 save_bank Ensures
-deaths 13 Set 0 firebat templar_ensure
+deaths 13 Set 0 firebat wait_attack
 return

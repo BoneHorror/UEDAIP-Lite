@@ -143,7 +143,7 @@ wait 500
 
 attack_do
 attack_clear
-tech statis_field 30
+tech stasis_field 30
 upgrade 1 observer_sight 30
 upgrade 2 p_plating 30
 wait 6375
