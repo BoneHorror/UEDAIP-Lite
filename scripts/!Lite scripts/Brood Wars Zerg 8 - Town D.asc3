@@ -319,7 +319,7 @@ attack_add 4 ultralisk
 attack_add 2 medic
 attack_add 3 valkyrie
 attack_add 4 guardian
-call attack_melee
+attack_prepare
 wait 500
 
 attack_do
@@ -339,7 +339,7 @@ attack_add 3 guardian
 attack_add 1 devourer
 attack_add 8 hydralisk
 attack_add 2 lurker
-call attack_melee
+attack_prepare
 wait 500
 
 attack_do
@@ -357,7 +357,7 @@ attack_add 8 firebat
 attack_add 6 vulture
 attack_add 2 infested_terran
 attack_add 6 ultralisk
-call attack_melee
+attack_prepare
 wait 500
 
 attack_do
