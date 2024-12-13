@@ -35,16 +35,18 @@ build 1 hive 80
 build 1 greater_spire 80
 build 1 ultralisk_cavern 80
 build 1 defiler_mound 80
+build 15 supply_depot 80
 place_guard medic 0
 max_force 766
-define_max 32 hydralisk
+define_max 22 hydralisk
 define_max 36 marine
 define_max 10 firebat
-define_max 30 zergling
+define_max 20 zergling
 define_max 6 vulture
 define_max 5 lurker
-define_max 12 goliath
+define_max 8 goliath
 define_max 7 ultralisk
+define_max 4 infested_terran
 define_max 8 siege_tank
 define_max 11 mutalisk
 define_max 6 guardian
@@ -56,6 +58,7 @@ define_max 3 queen
 define_max 3 defiler
 define_max 5 medic
 define_max 255 battlecruiser
+define_max 20 supply_depot
 defensebuild_gg 1 hydralisk
 defenseuse_gg 1 hydralisk
 defensebuild_gg 1 marine
