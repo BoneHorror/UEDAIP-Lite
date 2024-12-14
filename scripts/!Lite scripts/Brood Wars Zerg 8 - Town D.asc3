@@ -57,6 +57,7 @@ define_max 2 science_vessel
 define_max 3 queen
 define_max 3 defiler
 define_max 5 medic
+define_max 5 dropship
 define_max 255 battlecruiser
 define_max 20 supply_depot
 defensebuild_gg 1 hydralisk
