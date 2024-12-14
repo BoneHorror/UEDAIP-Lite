@@ -60,6 +60,20 @@ define_max 5 medic
 define_max 5 dropship
 define_max 255 battlecruiser
 define_max 20 supply_depot
+tech restoration 30
+tech burrowing 30
+tech consume 30
+tech lurker_aspect 30
+upgrade 1 vulture_speed 30
+upgrade 1 overlord_capacity 30
+upgrade 1 overlord_speed 30
+upgrade 1 z_missile_attack 30
+upgrade 1 z_flyer_attack 30
+upgrade 1 z_melee_attack 30
+upgrade 1 z_flyer_carapace 30
+upgrade 1 z_carapace 30
+wait 2025
+
 defensebuild_gg 2 hydralisk
 defenseuse_gg 2 hydralisk
 defenseuse_gg 1 marine
@@ -97,19 +111,7 @@ defensebuild_aa 1 wraith
 defenseuse_aa 1 wraith
 defensebuild_aa 1 mutalisk
 defenseuse_aa 1 mutalisk
-tech restoration 30
-tech burrowing 30
-tech consume 30
-tech lurker_aspect 30
-upgrade 1 vulture_speed 30
-upgrade 1 overlord_capacity 30
-upgrade 1 overlord_speed 30
-upgrade 1 z_missile_attack 30
-upgrade 1 z_flyer_attack 30
-upgrade 1 z_melee_attack 30
-upgrade 1 z_flyer_carapace 30
-upgrade 1 z_carapace 30
-wait 4125
+wait 2100
 
 train 3 firebat
 train 1 medic
