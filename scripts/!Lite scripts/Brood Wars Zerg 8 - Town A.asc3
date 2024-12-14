@@ -24,7 +24,7 @@ build 1 covert_ops 80
 build 1 physics_lab 80
 build 20 overlord 80
 place_guard medic 0
-max_force 1400
+max_force 1150
 define_max 24 hydralisk
 define_max 40 marine
 define_max 4 firebat
@@ -49,30 +49,33 @@ define_max 2 queen
 define_max 1 defiler
 define_max 5 dropship
 define_max 30 overlord
+defensebuild_gg 1 goliath
+defenseuse_gg 2 goliath
+defensebuild_gg 2 marine
+defenseuse_gg 2 marine
 defensebuild_gg 1 hydralisk
 defenseuse_gg 1 hydralisk
-defensebuild_gg 1 marine
-defenseuse_gg 1 marine
+defensebuild_gg 1 ghost
+defenseuse_gg 1 ghost
 defensebuild_gg 1 firebat
 defenseuse_gg 1 firebat
-defensebuild_gg 1 zergling
 defenseuse_gg 1 zergling
-defensebuild_gg 1 vulture
 defenseuse_gg 1 vulture
-defensebuild_gg 1 lurker
 defenseuse_gg 1 lurker
-defensebuild_gg 1 goliath
-defenseuse_gg 1 goliath
 defensebuild_gg 1 ultralisk
 defenseuse_gg 1 ultralisk
 defensebuild_gg 1 siege_tank
 defenseuse_gg 1 siege_tank
+defensebuild_gg 1 infested_terran
+defenseuse_gg 1 infested_terran
 defensebuild_ag 1 goliath
 defenseuse_ag 1 goliath
 defensebuild_ag 1 hydralisk
 defenseuse_ag 1 hydralisk
 defensebuild_ag 1 marine
 defenseuse_ag 1 marine
+defensebuild_ag 1 ghost
+defenseuse_ag 1 ghost
 defensebuild_ga 1 mutalisk
 defenseuse_ga 1 mutalisk
 defensebuild_ga 1 wraith
@@ -87,8 +90,8 @@ defensebuild_aa 1 valkyrie
 defenseuse_aa 1 valkyrie
 defensebuild_aa 1 devourer
 defenseuse_aa 1 devourer
-defensebuild_aa 1 wraith
-defenseuse_aa 1 wraith
+defensebuild_aa 2 wraith
+defenseuse_aa 2 wraith
 defensebuild_aa 1 mutalisk
 defenseuse_aa 1 mutalisk
 defensebuild_aa 1 battlecruiser
@@ -360,17 +363,18 @@ attack_do
 attack_clear
 wait 5125
 
-train 10 mutalisk
 train 2 battlecruiser
+train 4 mutalisk
 train 4 guardian
-train 4 valkyrie
+train 4 battlecruiser
+train 8 mutalisk
 train 4 devourer
-train 2 battlecruiser
+train 4 valkyrie
 attack_add 4 valkyrie
 attack_add 4 mutalisk
 attack_add 4 guardian
 attack_add 2 devourer
-attack_add 2 battlecruiser
+attack_add 4 battlecruiser
 attack_prepare
 wait 500
 
