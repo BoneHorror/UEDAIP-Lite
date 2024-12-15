@@ -24,7 +24,6 @@ build 1 fleet_beacon 80
 build 1 arbiter_tribunal 80
 resources 13 Set Ore 1500 block1
 resources 13 Set Gas 200 block1
-upgrade_jump 13 Set 55 1 block1
 #mining cheat upgrade
 max_force 800
 define_max 16 zealot
