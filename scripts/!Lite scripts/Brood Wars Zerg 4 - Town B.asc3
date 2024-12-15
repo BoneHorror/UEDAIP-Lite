@@ -22,7 +22,7 @@ build 1 comsat_station 80
 build 1 starport 80
 build 1 control_tower 80
 resources 13 Set Ore 500 block1
-resources 13 Set Gas 500 block1
+resources 13 Set Gas 4400 block1
 max_force 400
 define_max 22 scv
 define_max 20 marine
