@@ -10,7 +10,7 @@ default_min 0
 wait 1
 
 build 1 nexus 80
-build 4 probe 80
+build 18 probe 80
 build 2 gateway 80
 build 1 forge 80
 build 1 cybernetics_core 80
@@ -24,7 +24,6 @@ build 1 fleet_beacon 80
 build 1 arbiter_tribunal 80
 resources 13 Set Ore 1500 block1
 resources 13 Set Gas 200 block1
-#mining cheat upgrade
 max_force 800
 define_max 16 zealot
 define_max 12 dragoon
@@ -34,12 +33,12 @@ define_max 255 corsair
 define_max 3 carrier
 define_max 3 observer
 define_max 1 arbiter
-define_max 2 high_templar
+define_max 5 high_templar
 define_max 255 dark_templar
 define_max 4 archon
 define_max 255 dark_archon
-define_max 20 probe
-define_max 3 reaver
+define_max 30 probe
+define_max 4 reaver
 defensebuild_gg 2 zealot
 defenseuse_gg 2 zealot
 defensebuild_ag 1 dragoon
@@ -52,6 +51,9 @@ defensebuild_aa 2 scout
 defenseuse_aa 2 scout
 defensebuild_aa 1 carrier
 defenseuse_aa 1 carrier
+upgrade 1 p_ground_weapon 30
+wait 16
+
 attack_add 6 zealot
 attack_add 2 dragoon
 attack_prepare
@@ -59,17 +61,21 @@ wait 500
 
 attack_do
 attack_clear
-wait 7875
+upgrade 1 p_plating 30
+upgrade 1 zealot_speed 30
+wait 2475
 
-attack_add 10 zealot
-attack_add 3 dragoon
+attack_add 5 scout
+attack_add 4 dragoon
 attack_prepare
 wait 500
 
 attack_do
 attack_clear
-upgrade 1 p_ground_weapon 30
-wait 7875
+upgrade 1 p_air_weapon 30
+upgrade 1 p_armor 30
+upgrade 1 dragoon_range 30
+wait 4505
 
 attack_add 8 zealot
 attack_add 1 archon
@@ -78,41 +84,37 @@ wait 500
 
 attack_do
 attack_clear
-upgrade 1 p_plating 30
-upgrade 1 zealot_speed 30
-wait 7875
-
+upgrade 1 p_plasma_shield 30
 attack_add 5 scout
 attack_prepare
 wait 500
 
 attack_do
 attack_clear
-upgrade 1 p_armor 30
-upgrade 1 dragoon_range 30
-wait 16875
+tech psionic_storm 30
+wait 3875
 
-attack_add 5 dragoon
-attack_add 12 zealot
+attack_add 8 dragoon
+attack_add 1 high_templar
 attack_prepare
 wait 500
 
 attack_do
 attack_clear
-tech psionic_storm 30
-tech hallucination 30
-upgrade 1 p_plasma_shield 30
-wait 10875
+tech recall 30
+upgrade 2 p_ground_weapon 30
+wait 4875
 
-attack_add 1 carrier
+attack_add 2 carrier
 attack_add 4 scout
 attack_prepare
 wait 500
 
 attack_do
 attack_clear
-upgrade 1 p_air_weapon 30
-wait 10875
+upgrade 1 scout_speed 30
+upgrade 2 p_armor 30
+wait 3575
 
 attack_add 10 dragoon
 attack_add 3 scout
@@ -121,44 +123,21 @@ wait 500
 
 attack_do
 attack_clear
-tech recall 30
-upgrade 2 p_ground_weapon 30
-wait 13875
-
-attack_add 10 zealot
-attack_add 8 dragoon
-attack_prepare
-wait 500
-
-attack_do
-attack_clear
-upgrade 1 scout_speed 30
-upgrade 2 p_armor 30
-wait 3375
-
-attack_add 4 scout
-attack_prepare
-wait 500
-
-attack_do
-attack_clear
 tech stasis_field 30
 upgrade 1 observer_sight 30
 upgrade 2 p_plating 30
-wait 6375
+wait 4875
 
-attack_add 5 zealot
-attack_add 3 dragoon
+attack_add 10 zealot
+attack_add 8 dragoon
+attack_add 1 arbiter
 attack_prepare
 wait 500
 
 attack_do
 attack_clear
 upgrade 2 p_plasma_shield 30
-wait 6375
-
-attack_add 8 zealot
-attack_add 3 dragoon
+attack_add 4 scout
 attack_prepare
 wait 500
 
@@ -167,39 +146,77 @@ attack_clear
 upgrade 1 reaver_capacity 30
 upgrade 1 scout_sight 30
 upgrade 2 p_air_weapon 30
+wait 2375
+
+attack_add 5 zealot
+attack_add 3 dragoon
+attack_add 1 reaver
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+upgrade 3 p_plasma_shield 30
+upgrade 3 p_armor 30
+upgrade 3 p_plating 30
+wait 5175
+
+attack_add 6 scout
+attack_add 2 reaver
+attack_add 1 carrier
+attack_add 2 archon
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+upgrade 3 p_ground_weapon 30
+upgrade 3 p_air_weapon 30
 
 :block1
-wait 10875
+wait 2575
 
-attack_add 1 carrier
-attack_add 10 dragoon
-attack_prepare
-wait 500
-
-attack_do
-attack_clear
-wait 10875
-
-attack_add 4 scout
-attack_add 2 carrier
-attack_prepare
-wait 500
-
-attack_do
-attack_clear
-wait 10875
-
-attack_add 12 zealot
-attack_add 2 dragoon
-attack_prepare
-wait 500
-
-attack_do
-attack_clear
-wait 10875
-
+train 8 zealot
+train 4 scout
 attack_add 8 zealot
 attack_add 4 scout
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 5275
+
+train 3 carrier
+train 6 scout
+attack_add 6 scout
+attack_add 3 carrier
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 4575
+
+train 12 zealot
+train 2 dragoon
+train 2 archon
+attack_add 12 zealot
+attack_add 2 dragoon
+attack_add 2 archon
+attack_prepare
+wait 500
+
+attack_do
+attack_clear
+wait 3875
+
+train 2 carrier
+train 10 dragoon
+train 2 reaver
+attack_add 2 carrier
+attack_add 10 dragoon
+attack_add 2 reaver
 attack_prepare
 wait 500
 
